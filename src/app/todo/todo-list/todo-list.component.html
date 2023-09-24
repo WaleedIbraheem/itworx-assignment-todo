@@ -1,0 +1,13 @@
+<mat-accordion *ngIf="todos.length > 0">
+  <mat-expansion-panel *ngFor="let todo of todos">
+    <mat-expansion-panel-header class="info-text" [class.completed]="todo.completed">
+      {{ todo.title }}
+    </mat-expansion-panel-header>
+    <p class="info-text mat-body-1" *ngIf="todo.completeData">Complete at: {{ todo.completeData }}</p>
+    <mat-action-row>
+      <button *ngIf="todo.completed === false" mat-button color="primary" (click)="onCompleteTodoItem(todo.id)">Mark As COMPLETE</button>
+      <button mat-button color="warn" (click)="onDeleteTodoItem(todo.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="todos.length === 0">Your todo list is Empty</p>

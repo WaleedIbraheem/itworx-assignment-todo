@@ -1,0 +1,11 @@
+<mat-card>
+  <form (submit)="onAddTodo(todoForm)" #todoForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" name="todoItem" ngModel required placeholder="Enter Todo Item">
+      <mat-error *ngIf="todoForm.controls['todoItem'].invalid">Require Field</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" type="submit">Add Todo Item</button> | 
+    <button mat-raised-button color="accent" (click)="onRefresh()">Reload</button>
+  </form>
+</mat-card>
